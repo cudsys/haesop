@@ -372,7 +372,7 @@ Elle: $v_elle[hi! ummmm you seem nice. how are you??]
 
 (t8n:&quot;dissolve&quot;)+(after:time+1.5s)[=
 (track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 0)(track: &#39;routestart_elle&#39;, &#39;play&#39;)(set: $route to &quot;elle&quot;)**You have decided to hang out with Elle today.**(if: $smallVoice is true)[(text-colour:#ffff7a)[&lt;br&gt;^^Text that goes along the lines of this usually indicate you&#39;ve been locked into a route.^^]]
-(link-reveal-goto: &quot;Close phone&quot;, &quot;Bedroom&quot;)[(set: $sp_elleCutsceneDone to true)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 1)]</tw-passagedata><tw-passagedata pid="16" name="Outside of House" tags="" position="925,225" size="100,100">You (if: $outside_intro is false)[grab your shoulder bag and] head outside. It&#39;s a $weather day today.
+(link-reveal-goto: &quot;Lock phone&quot;, &quot;Bedroom&quot;)[(set: $sp_elleCutsceneDone to true)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 1)]</tw-passagedata><tw-passagedata pid="16" name="Outside of House" tags="" position="925,225" size="100,100">You (if: $outside_intro is false)[grab your shoulder bag and] head outside. It&#39;s a $weather day today.
 (set: $outside_intro to true)
 Where to from here?
 
@@ -692,7 +692,7 @@ You: ........dammit.
 [[The end-&gt;The distracted ending]]</tw-passagedata><tw-passagedata pid="34" name="The distracted ending" tags="" position="2825,775" size="200,200">### *The End*
 (align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=XXXXXXXXXXXXXXXXXX=&quot;)[
 ##Procrastination strikes again!
-*~ The distraced ending ~*
+*~ The distracted ending ~*
 (unless: $endings contains &quot;distracted&quot;)[(set:$endings to it + (a:&quot;distracted&quot;))(set: $lastending to &quot;distracted&quot;)]
 You had so much fun today...you completely forgot your objective!
 (font:&quot;Ubuntu&quot;)+(text-colour:#0ff)[(either:&quot;&quot;,&quot;That&#39;s okay! You always have tomorrow...if you want to wait until tomorrow to play again that is.&quot;)]]{(track: &#39;ambient&#39;, &#39;stop&#39;)(track: &#39;ending&#39;, &#39;loop&#39;, true)
@@ -901,10 +901,10 @@ As Avery leads you inside, no one glares at you, only looking with welcoming smi
 (t8n:&quot;dissolve&quot;)+(link-replace: &quot;Look out the window&quot;)[=You gaze out the window. The view is nothing short of awe-inspiring.
 
 (t8n:&quot;dissolve&quot;)+(link-replace: &quot;Sit down with Avery&#39;s friends&quot;)[=Avery: $v_avery[So, yeah! welcome to our happy place]
-You: it&#39;s...this place is amazing
+You: it&#39;s...this place is amazing.
 Avery: $v_avery[mm! ah! and these are my friends: lilac and max]
 
-Two figures are seated on couches covered in strawberry stickers. One has messy brain hair, the other has straight purple hair with glasses. They both look at Avery,, then turn their gaze towards you.
+Two figures are seated on couches covered in strawberry stickers. One has messy brown hair, the other has straight purple hair with glasses. They both look at Avery,, then turn their gaze towards you.
 
 Lilac: $v_lilac[hiiiiiiii!!]
 Max: $v_max[helloo!]
@@ -1169,7 +1169,7 @@ Avery: $v_avery[Yeah i&#39;ll be fine. you three have fun, i&#39;ll hold down th
 
 You all exchange waves as the three of you head down back to the food court. As you make your way down, companionable silence accompanies for a minute before your arrival.
 
-Lilac: $v_lilac[ahhh! flavour Town here we are!]
+Lilac: $v_lilac[ahhh! flavour town here we are!]
 (set: $foobd to (a:&quot;none&quot;, &quot;none&quot;))
 [[Food court]]</tw-passagedata><tw-passagedata pid="51" name="Stay with Avery" tags="" position="2275,1175" size="100,100">You: i&#39;m gonna stay here with avery.
 Lilac: $v_lilac[alright.]
@@ -1202,7 +1202,7 @@ You nod. You get the vibe that Avery&#39;s room is covered in DIY. You readjust 
 
 You: ...is that...
 
-Avery tilts their head, then let&#39;s out an eep as they quickly close their book. You were on that page. A slightly cuter version, but undeniably you.
+Avery tilts their head, then lets out an eep as they quickly close their book. You were on that page. A slightly cuter version, but undeniably you.
 
 You: WHAT. when did you get the time to draw that?!
 
@@ -1394,11 +1394,11 @@ That was a close call.
 
 [[The end-&gt;The Max ending]]</tw-passagedata><tw-passagedata pid="53" name="Time passes (Summit)" tags="" position="2650,1375" size="100,100">A few hours pass, and the lot of you have spent the last hour in a competitive racing game.
 
-When, something crosses your mind
+When, something crosses your mind.
 
 You: hey, avery?
 
-Avery, currently getting crushed in a Celeste race, lets out a frustrated breath as they put their controls down, resigned to their defeat.
+Avery, currently getting crushed in a Celeste race, lets out a frustrated breath as they put their controller down, resigned to their defeat.
 
 Avery: $v_avery[Yeah, &#39;sup, dude?]
 Avery: $v_avery[Wait, you&#39;re chill with &quot;dude&quot;, right?]
@@ -1408,7 +1408,7 @@ You: you mentioned earlier that if evan wasn&#39;t a jerk, you&#39;d be into him
 Avery: $v_avery[Uhhhhh yeah? i mean, his fashion could use a little work, and minus the egotistic maniacism, he&#39;s kinda cute]
 Lilac: $v_lilac[so just..remove evan from evan and youd like him?]
 
-Avery snaps her fingers at Lilac, who&#39;s idly doing extended hyperdashes at the end of the level.
+Avery snaps their fingers at Lilac, who&#39;s idly doing extended hyperdashes at the end of the level.
 
 Avery: $v_avery[Exactly! so much better]
 Max: $v_max[wait, but.......ok, hold up.]
@@ -1489,8 +1489,8 @@ Evan: $v_evan[I am not a part of the LGBT+ community, and I denounce what they s
 
 You&#39;re really doing this. You dedicated your day to figuring this out and this is how it&#39;s ended up.
 
-You: I-I..I am not a part of the lgbt+ community, and I...
-You: I denounce what they stand for.
+You: i-i..i am not a part of the lgbt+ community, and i...
+You: i denounce what they stand for.
 
 You didn&#39;t think this would hurt. You thought they were just, words. But to hear yourself say it, when you were so close, crushes you. It sounds, so familiar...
 You can feel your fire leave your body.
@@ -2043,7 +2043,7 @@ You: hahah! yeah. happy we didn&#39;t get caught.
 
 The laughter dies down as you return your gaze to the view before you. A few minutes pass.
 
-Elle: hey
+Elle: Elle: $v_elle[hey]
 You: `*turns to elle*` yeah?
 Elle: $v_elle[ever thought about having kids?]
 You: nah.
@@ -2080,7 +2080,7 @@ You ponder this. No sexual attraction. You look back at Elle. She&#39;s beautifu
 (hide:?o4)
 (show:?next)
 A shudder passes through you.&lt;br&gt;
-&lt;br&gt;You: ok, yep sure. but what about when..like..i dont &#39;like&#39; the idea of sex?
+&lt;br&gt;You: ok, yep sure. but what about when..like..i don&#39;t &#39;like&#39; the idea of sex?
 &lt;br&gt;Elle: $v_elle[ah! sex-repulsed. yeah, some aces are neutral or positive about sex, but it looks like that just isnt ur thing. does that sound right?]
 &lt;br&gt;You: ...yeah! yeah, I think it does.
 ]]|o2&gt;[(link-replace:&quot;&lt;br&gt;i don&#39;t hate it, but I don&#39;t like it either&quot;)[
