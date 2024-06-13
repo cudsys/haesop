@@ -1,2 +1,4 @@
 # haesop
 holy dip its the game
+
+***WARNING: THIS REPO CONTAINS VERY HEAVY SPOILERS FOR THE GAME
