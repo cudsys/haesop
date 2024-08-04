@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Hailey&#39;s Aesop v1.1.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Hailey&#39;s Aesop v1.1" startnode="116" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="d8fe285a-ae8c-4178-ab96-3877c768b48e" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+<tw-storydata name="Hailey&#39;s Aesop v1.1" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="d8fe285a-ae8c-4178-ab96-3877c768b48e" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
@@ -105,6 +105,7 @@ tw-passage select:not([disabled]) {
     (set:$skipOpening to false)
     (set:$autoSave to false)
     (set:$haileytext to false)
+    (set:$mvchoice to &quot;50%&quot;)
     
     &lt;!-- PROGRESS --&gt;
     (set:$run to 0)
@@ -119,6 +120,9 @@ tw-passage select:not([disabled]) {
     (set:$MCKNOWSHAILEY to false)
     (set:$devcomunlock to false)
     (set:$devcom to false)
+    
+    &lt;!-- SPECIAL PROGRESS --&gt;
+    (set:$mental to 0)
 ]
 (unless: (track: &#39;menu&#39;, &#39;isplaying&#39;))[(track: &#39;menu&#39;, &quot;play&quot;)]
 (unless: (track: &#39;settings&#39;, &#39;isplaying&#39;))[(track: &#39;settings&#39;, &quot;play&quot;)]
@@ -384,7 +388,7 @@ Elle: $v_elle[hi! ummmm you seem nice. how are you??]
 {(t8n:&quot;dissolve&quot;)+(after:time+5s)[Elle: $v_elle[we dont have to if u dont wanna but i thought it could be fun!&lt;br&gt;]]
 }[[&quot;sure&quot;-&gt;Elle Route Begin]]
 [[&quot;maybe not&quot;-&gt;Elle Route Deny]]
-</tw-passagedata><tw-passagedata pid="15" name="Elle Route Begin" tags="" position="1950,900" size="100,100">You: i mean, sure. you seem to know more than me, where and when would you like to meet?
+</tw-passagedata><tw-passagedata pid="15" name="Elle Route Begin" tags="" position="1925,900" size="100,100">You: i mean, sure. you seem to know more than me, where and when would you like to meet?
 (t8n:&quot;dissolve&quot;)+(after:time+1.5s)[=Elle: $v_elle[yayy!! you can come to mine if you want, or we can go to my favourite spot in the city? it&#39;s near city mall.]
 (t8n:&quot;dissolve&quot;)+(after:time+1.5s)[=Elle: $v_elle[what works for you?]
 (t8n:&quot;dissolve&quot;)+(after:time+1.5s)[=You: not sure. i&#39;ll let you know.
@@ -392,7 +396,7 @@ Elle: $v_elle[hi! ummmm you seem nice. how are you??]
 
 (t8n:&quot;dissolve&quot;)+(after:time+1.5s)[=
 (track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 0)(track: &#39;routestart_elle&#39;, &#39;play&#39;)(set: $route to &quot;elle&quot;)**You have decided to hang out with Elle today.**(if: $smallVoice is true)[(text-colour:#ffff7a)[&lt;br&gt;^^Text that goes along the lines of this usually indicate you&#39;ve been locked into a route.^^]]
-(t8n-depart:&quot;slide-down&quot;)+(t8n-arrive:&quot;slide-down&quot;)+(t8n-time:0.5s)(link-reveal-goto: &quot;Lock phone&quot;, &quot;Bedroom&quot;)[(set: $sp_elleCutsceneDone to true)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 1)]</tw-passagedata><tw-passagedata pid="16" name="Outside of House" tags="" position="1500,750" size="100,100">You (if: $outside_intro is false)[grab your shoulder bag and] head outside. It&#39;s a $weather day today.(set: $outside_intro to true)
+(t8n-depart:&quot;slide-down&quot;)+(t8n-arrive:&quot;slide-down&quot;)+(t8n-time:0.5s)+(link-reveal-goto: &quot;Lock phone&quot;, &quot;Bedroom&quot;)[(set: $sp_elleCutsceneDone to true)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 1)]</tw-passagedata><tw-passagedata pid="16" name="Outside of House" tags="" position="1500,750" size="100,100">You (if: $outside_intro is false)[grab your shoulder bag and] head outside. It&#39;s a $weather day today.(set: $outside_intro to true)
 (if: (history:)&#39;s 3rdlasttolast is (a:&quot;Bedroom&quot;,&quot;Outside of House&quot;,&quot;Bedroom&quot;))[Your mum yells at you to stop playing with the damn door.]
 
 Where to from here?
@@ -404,7 +408,7 @@ Where to from here?
 
 (t8n:&quot;dissolve&quot;)+(after:time+1.5s)[=
 (set: $route to &quot;summit&quot;)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 0)(track: &#39;routedeny_elle&#39;,&#39;play&#39;)**You have decided not to hang out with Elle today.**
-(t8n-depart:&quot;slide-down&quot;)+(t8n-arrive:&quot;slide-down&quot;)+(t8n-time:0.5s)(link-reveal-goto: &quot;Lock phone&quot;, &quot;Bedroom&quot;)[(set: $sp_elleCutsceneDone to true)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 1)]</tw-passagedata><tw-passagedata pid="18" name="Edit profile" tags="" position="1600,575" size="100,100">## Your profile
+(t8n-depart:&quot;slide-down&quot;)+(t8n-arrive:&quot;slide-down&quot;)+(t8n-time:0.5s)+(link-reveal-goto: &quot;Lock phone&quot;, &quot;Bedroom&quot;)[(set: $sp_elleCutsceneDone to true)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 1)]</tw-passagedata><tw-passagedata pid="18" name="Edit profile" tags="" position="1600,575" size="100,100">## Your profile
 
 Name: (text-colour:#ababab)[*discreet and confused*]
 Pronouns: (dropdown: 2bind $prns,&quot;Select...&quot;,&quot;he/him&quot;,&quot;she/her&quot;,&quot;they/them&quot;,&quot;&quot;,&quot;any&#39;s/fine&quot;)
@@ -462,9 +466,9 @@ The bus begins to move again. You message Elle that you&#39;re on your way to he
 (t8n:&#39;dissolve&#39;)+(after:time+5s)[=
 &lt;br&gt;The bus stops outside Elle&#39;s house. How convenient!
 &lt;br&gt;&lt;br&gt;
-(link-reveal-goto:&quot;Exit bus&quot;,&quot;Exit bus&quot;)[(track: &#39;bus&#39;, &#39;fadeto&#39;, 0.25, 0)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.5, 1)]
+(link-reveal-goto:&quot;Exit bus&quot;,&quot;Exit bus&quot;)[(track: &#39;bus&#39;, &#39;fadeto&#39;, 0.25, 0)(track: &#39;amb_city&#39;, &#39;fadeto&#39;, 0.5, 1)]
 ]]]
-|o2&gt;[(link:&quot;&lt;br&gt;City Mall&quot;)[(track: &#39;bus&#39;, &#39;fadeto&#39;, 0.25, 0)(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.5, 1)
+|o2&gt;[(link:&quot;&lt;br&gt;City Mall&quot;)[(track: &#39;bus&#39;, &#39;fadeto&#39;, 0.25, 0)(track: &#39;amb_city&#39;, &#39;play&#39;)(track: &#39;amb_city&#39;, &#39;fadeto&#39;, 0.5, 1)
 (if: $route is &quot;none&quot;)[(set:$route to &quot;summit&quot;)]
 (go-to:&quot;City Mall&quot;)
 ]]
@@ -749,9 +753,9 @@ Endings: (print:(str: $endings&#39;s length))
 (align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=XXXXXXXXXXXXXXXXXX=&quot;)[
 ##You are loved
 *~ The breakdown ending ~*
-(unless: $endings contains &quot;breakdown&quot;)[(set:$endings to it + (a:&quot;breakdown&quot;))(set: $lastending to &quot;breakdown&quot;)]
+(unless: $endings contains &quot;breakdown&quot;)[(set:$mental to it + 1)(set:$endings to it + (a:&quot;breakdown&quot;))(set: $lastending to &quot;breakdown&quot;)]
 It seems that today just wasn&#39;t the day to figure it out.
-(font:&quot;Ubuntu&quot;)+(text-colour:#0ff)[(either:&quot;&quot;,&quot;You can take a miunute to process this ending if you want. You&#39;re not on a time limit.&quot;)]]{(masteraudio: &quot;stopall&quot;)(track: &#39;ending_sad&#39;, &#39;play&#39;)
+(font:&quot;Ubuntu&quot;)+(text-colour:#0ff)[(if:$mental &gt;= 5)[Please stop.](else:)[(either:&quot;&quot;,&quot;You can take a miunute to process this ending if you want. You&#39;re not on a time limit.&quot;)]]]{(masteraudio: &quot;stopall&quot;)(track: &#39;ending_sad&#39;, &#39;play&#39;)
 }
 (t8n:&quot;zoom&quot;)+(t8n-time:1.5s)+(link: &quot;Reveal sexuality&quot;)[=
 (align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=XXXXXXXXXXXXXXXXXX=&quot;)[You are...
@@ -875,16 +879,21 @@ They grin at this as they adjust the choker on their neck.
 
 Evan: $v_evan[Who says you&#39;re not lower than me? Besides, it&#39;s none of your business what I&#39;m up to anyway.]
 
-They tilt their head and looks at you, something registering in their gaze as they turn back towards Evan.
+They tilt their head and look at you, something registering in their gaze as they turn back towards Evan.
 
 ???: $v_avery[Just leave (if:$pronouns&#39;s length is 0)[them](else:)[(print: $pronouns&#39;s 2nd)] alone dude, (if:$pronouns&#39;s length is 0)[they&#39;re](else:)[(print: $pronouns&#39;s 5th)] uncomfortable. kindly piss off?]
 
 Evan pulls his lips back in a snarl.
 
-Evan: $v_evan[How do you know it&#39;s not YOU who&#39;s making (if:$pronouns&#39;s length is 0)[them](else:)[(print: $pronouns&#39;s 2nd)] uncomfortable?]
+{(if:$pronouns&#39;s length is 0)[Evan: $v_evan[How do you know it&#39;s not YOU who&#39;s making...]
+&lt;br&gt;
+He quickly glances at you before quickly shaking his head and blurting out the rest of his sentence.
+&lt;br&gt;
+Evan: $v_evan[...&quot;them&quot; uncomfortable?]](else:)[Evan: $v_evan[How do you know it&#39;s not YOU who&#39;s making (print: $pronouns&#39;s 2nd) uncomfortable?]]}
+
 ???: $v_avery[Cos *i* am a chill-to-the-choker extraordinaire, and not a creep that deals with manipulating random folk they meet on the street... unlike *SOMEONE* I could name `*glares at Evan*`]
 
-Evan stands up at this, but not a lot comes out of his mouth before he looks back at you. You avert his gaze as you tune out of their conversation and find comfort in the surrounding white noise. Evan shakes his head and walks away as he mutters something under his breath.
+Evan stands up at this, but not a lot comes out of his mouth before he looks back at you(if:$pronouns&#39;s length is 0)[ again]. You avert his gaze as you tune out of their conversation and find comfort in the surrounding white noise. Evan shakes his head and walks away as he mutters something under his breath.
 
 You look up at this stranger as they take what used to be Evan&#39;s seat.
 
@@ -900,7 +909,7 @@ Their eyes shine as they stand up with a smile, offering you their hand.
 
 ???: $v_avery[Well! not to brag, but i *do* know some (text-size:0.9)[^^pretty gay^^] people. wanna come chill with us?]
 
-(t8n:&quot;dissolve&quot;)+(link:&#39;Go with Avery&#39;)[=(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 0)(track: &#39;routestart_summit&#39;, &#39;play&#39;)You: um... yeah! sure, that could be cool.
+(t8n:&quot;dissolve&quot;)+(link:&#39;Go with Avery&#39;)[=(track: &#39;amb_city&#39;, &#39;fadeto&#39;, 2, 0)(track: &#39;routestart_summit&#39;, &#39;play&#39;)You: um... yeah! sure, that could be cool.
 
 Their smile widens as you take their hand.
 
@@ -924,7 +933,7 @@ After a minute of companionable silence, you and Avery start chatting. It&#39;s 
 
 As your head peaks over the last escalator, your question was answered.
 
-[[The Summit]]</tw-passagedata><tw-passagedata pid="43" name="The Summit" tags="" position="2600,1800" size="100,100">{(set: $route to &quot;summit&quot;)(track: &#39;summit&#39;, &#39;play&#39;)
+[[The Summit-&gt;summit slight rewrite]]</tw-passagedata><tw-passagedata pid="43" name="The Summit" tags="" position="2600,1800" size="100,100">{(set: $route to &quot;summit&quot;)(track: &#39;summit&#39;, &#39;play&#39;)
 }Avery: $v_avery[Welcome to...the summit!]
 
 Where the art exhibit once stood, was a place you had never seen, let alone heard others talk about before. What was once a large open space committed to modern art had been transformed into an even larger space with couches, beanbags, and blankets, with the large windows showcasing the city skyline only exaggerating the openness of the area. The walls were adorned with a multitude of flags that you could tell had a meaning and history to each of them, and a single pole connecting the floor to the roof in the center of the space with a single flag being hung from the top, a red flag you haven&#39;t seen before.
@@ -1002,7 +1011,10 @@ Avery: $v_avery[Biscuit, did you drop it on the way here?]
 Lilac: $v_lilac[`*head in her hands*` sure hope not...]
 
 [[Go look for Lilac&#39;s phone]]
-[[Let her find it]]</tw-passagedata><tw-passagedata pid="45" name="Avery path" tags="" position="2725,1775" size="100,100">You: i mean, have you guys ever had freshly picked strawberries?
+[[Let her find it]]
+
+(if: $devcom is true)[$v_hailey_dc[Alright, before you say anything, no. I am not a sellout and the Obsidian team is not paying me to plug their software. I actually used Obsidian to create a wiki of sorts for the game, full of details about characters, locations, endings, etc. It&#39;s reeeeally good. I got introduced to it initially 2 years ago but was reminded of its existence by Edme. If you ever want to make a game like this but struggle with planning, I highly suggest using Obsidian to make a pseudo-wiki. It&#39;s really cool and fun!]]
+</tw-passagedata><tw-passagedata pid="45" name="Avery path" tags="" position="2725,1775" size="100,100">You: i mean, have you guys ever had freshly picked strawberries?
 Lilac: $v_lilac[YES OMG THOSE ARE THE BEST]
 Max: $v_max[best fruit imho]
 Avery: $v_avery[Yeah, that&#39;s one of the reasons we got...]
@@ -2206,6 +2218,7 @@ opening: ./audio/haesop_opening.mp3
 
 ambient: ./audio/haesop_ambient_bedroom.mp3
 ambient_true: ./audio/haesop_ambient_true.mp3
+amb_city: ./audio/haesop_ambience_city.mp3
 amb_city_true: ./audio/haesop_ambience_city_true.mp3
 
 summit: ./audio/haesop_summit.mp3
@@ -2317,12 +2330,14 @@ Avery smirks back, then places their hands in their pockets. You all take your l
 
 (track: &#39;ambient&#39;, &#39;loop&#39;, true)
 (track: &#39;ambient_true&#39;, &#39;loop&#39;, true)
+(track: &#39;amb_city&#39;, &#39;loop&#39;, true)
 (track: &#39;amb_city_true&#39;, &#39;loop&#39;, true)
 (track: &#39;summit&#39;, &#39;loop&#39;, true)
 (track: &#39;vsevan&#39;, &#39;loop&#39;, true)
 (track: &#39;credits&#39;, &#39;loop&#39;, true)
 (track: &#39;menu&#39;, &#39;volume&#39;, 0)
 (track: &#39;settings&#39;, &#39;volume&#39;, 0)
+(track: &#39;amb_city&#39;, &#39;volume&#39;, 0)
 (track: &#39;menu&#39;, &#39;playwhenpossible&#39;)
 (track: &#39;settings&#39;, &#39;playwhenpossible&#39;)
 
@@ -2376,7 +2391,7 @@ We appreciate the concept of confidentiality. However, you need to finish adding
 (link-reveal-goto:&quot;Edit profile&quot;, &quot;Edit profile&quot;)[(set: $edit_redirect to &quot;bus&quot;)]]]
 
 (link-reveal-goto:&quot;Catch the bus&quot;,&quot;Bus&quot;)[(track: &#39;ambient&#39;, &#39;fadeto&#39;, 0.25, 0)]]
-](else:)[=
+(else:)[=
 (if: $samantha is true)[
 (if: $run is 4)[
 A frog wearing a small traffic cone on her head is sitting next to you. She croaks for your attention.
@@ -2937,9 +2952,77 @@ Also known as **questioning**, you&#39;re not 100% sure what your sexuality is. 
 (link-reveal-goto: &quot;Stats&quot;, &quot;Stats&quot;)[(track: &#39;ending&#39;, &#39;fadeout&#39;, 5)]
 (link-reveal-goto: &quot;File&quot;, &quot;File&quot;)[(track: &#39;ending&#39;, &#39;fadeout&#39;, 5)]
 (link-reveal-goto: &quot;Title&quot;, &quot;Title&quot;)[(track: &#39;ending&#39;, &#39;fadeout&#39;, 5)]</tw-passagedata><tw-passagedata pid="116" name="ворота Вунтак" tags="" position="275,125" size="100,100">(font:&quot;Consolas&quot;)+(text-colour:#2a76af)[What&#39;s the password, Hailey?]
+
 (input-box:2bind _code,&quot;==X==&quot;,1)
 (live: 1ms)[
-(if: _code is &quot;nomoresecrets&quot;)[(go-to: &quot;Title&quot;)]]</tw-passagedata></tw-storydata>
+(if: _code is &quot;nomoresecrets&quot;)[(go-to: &quot;Title&quot;)]]</tw-passagedata><tw-passagedata pid="117" name="summit slight rewrite" tags="" position="2550,1950" size="100,100">{(set: $route to &quot;summit&quot;)(track: &#39;summit&#39;, &#39;play&#39;)
+}Avery: $v_avery[Welcome to...the summit!]
+
+Where the art exhibit once stood, was a place you had never seen, let alone heard others talk about before. What was once a large open space committed to modern art had been transformed into an even larger space with couches, beanbags, and blankets, with the large windows showcasing the city skyline only exaggerating the openness of the area. The walls were adorned with a multitude of flags that you could tell had a meaning and history to each of them, and a single pole connecting the floor to the roof in the center of the space with a single flag being hung from the top, a red flag you haven&#39;t seen before.
+
+As Avery leads you inside, no one glares at you, only looking with welcoming smiles and latent curiosity. No one is getting in your face, but there are words of affirmation scribbled on the walls and every inch of furniture. You can&#39;t smell fear or anger, but rather the comforting aroma coming from the tea station to the right of the room.
+
+(t8n:&quot;dissolve&quot;)+(link-replace: &quot;Look out the window&quot;)[=You gaze out the window that stretches from the floor to the ceiling, showcasing a breathtaking vista of the city.
+
+(t8n:&quot;dissolve&quot;)+(link-replace: &quot;Sit down with Avery&#39;s friends&quot;)[=Avery: $v_avery[So, yeah! welcome to our happy place]
+You: it&#39;s...this place is amazing.
+Avery: $v_avery[Mm! ah! and these are my friends: lilac and max]
+
+Two figures are seated on couches covered in strawberry stickers. One has messy brown hair, the other has straight purple hair with glasses. They both look at Avery, then turn their gaze towards you.
+
+Lilac: $v_lilac[hiiiiiiii!!]
+Max: $v_max[(if:$mvchoice is &quot;Max&quot;)[HELLOOOO-oop, sorry `*cough*` ]helloo!]
+
+Max quickly turns his focus towards Avery for a moment, gesturing his eyes towards you. Avery chuckles before giving him a smile and a nod. 
+
+Avery chuckles before gesturing towards Lilac.
+
+Avery: $v_avery[Lilac here is a demigal and uses she/her and they/them pronouns]
+
+Lilac gives a little wave.
+
+Avery: $v_avery[And max here is our baby ally. he uses he/him pronouns]
+Max: $v_max[hey there! still getting the hang of things but uhh what&#39;re your pronouns?]
+You: hey! i(if:$pronouns&#39;s length is 0)[...ummmmm....
+&lt;!--{|o1&gt;[(t8n:&quot;dissolve&quot;)+(link-replace:&quot;\&quot;i&#39;m not actually sure\&quot;&quot;)[
+(hide:?o2)
+(show:?next)
+you chose option 1!
+]]|o2&gt;[(t8n:&quot;dissolve&quot;)+(link-replace:&quot;&lt;br&gt;\&quot;what are pronouns again?\&quot;&quot;)[
+(hide:?o1)
+(show:?next)
+you chose option 2!
+]]
+}--&gt;](else:)[ use (if: $prns is &quot;any&#39;s/fine&quot;)[any](else:)[(print:$pronouns&#39;s 1st)/(print:$pronouns&#39;s 2nd)] pronouns.] 
+(hidden:)|next&gt;[=Max: $v_max[`*turns to Lilac*` crushed it]
+
+Lilac gives Max a high-five.
+
+You: right, so how have i never heard of this place?
+Lilac: $v_lilac[well, you know how there was an art thing here?]
+You: mhmmm..
+Avery: $v_avery[Well, the peeps running this place saw that us cool cats were using this spot as a chillout space. they saw the potential and bam! revamp!]
+You: oh that&#39;s cool!
+Max: $v_max[i mean, limited time things are cool, but this is too good to not keep]
+Lilac: $v_lilac[yeah. remember that one thing about fruit?]
+Avery: $v_avery[The fruit art! yeah that was sick]
+Max: $v_max[the artwork descriptions were funny too. like the one that said &quot;who looked at this and thought &#39;mmmmm straw&#39;!?&quot;]
+Lilac: $v_lilac[i wanna keep track of all the cool things that happen here but like the notes app is so...basic...]
+
+You get lost in the conversation as your mind drifts back to your thoughts. The chatter of the three friends fading away as you start to wonder.
+
+You: //can they help me? should i bring up my problem? i don&#39;t wanna overshare...but they seem friendly? could they...//
+
+A few minutes pass by in this state, before you feel a tap on your shoulder.
+
+Avery: $v_avery[Hey you alright? it looks like you want to say something]
+
+Your eyes focus back to the three people you&#39;re with as you filter through the last few minutes of conversation for a talking point.
+
+[[&quot;i know an app that might help&quot;-&gt;Lilac path]]
+[[&quot;strawberries are nice.&quot;-&gt;Avery path]]
+[[&quot;alright, hear me out...&quot;-&gt;Max path]]
+[[&quot;i need to go out more often.&quot;-&gt;Talking path]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
